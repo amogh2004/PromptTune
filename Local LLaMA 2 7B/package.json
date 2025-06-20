@@ -1,0 +1,29 @@
+{
+  "name": "prompt-optimiser",
+  "version": "1.0.0",
+  "description": "A JavaScript tool to optimize prompts using local Ollama LLaMA 2 7B instance",
+  "main": "promptOptimizer.js",
+  "scripts": {
+    "start": "node promptOptimizer.js",
+    "api": "node api.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "express": "^5.1.0"
+  },
+  "keywords": [
+    "prompt",
+    "optimization",
+    "ollama",
+    "llama2",
+    "ai",
+    "chatbot"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
