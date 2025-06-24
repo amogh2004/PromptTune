@@ -33,7 +33,7 @@ The PromptTune project aims to:
 | Tool | Description | Status |
 |------|-------------|--------|
 | [Local LLaMA 2 7B](./Local%20LLaMA%202%207B/) | Local prompt optimizer using Ollama | ✅ Complete |
-| Chrome Extension | Browser extension for real-time optimization | 🚧 Planned |
+| Chrome Extension | Browser extension for real-time optimization | ✅ Complete |
 | Cloud API | Cloud-based optimization service | 🚧 Planned |
 
 ## 🤝 Contributing
