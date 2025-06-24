@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptTune</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>PromptTune</h1>
+                <span class="subtitle">AI Prompt Optimizer</span>
+            </div>
+            <div class="status-indicator">
+                <div id="connectionStatus" class="status-dot offline"></div>
+                <span id="statusText">Checking connection...</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="originalPrompt">Original Prompt:</label>
+                <textarea 
+                    id="originalPrompt" 
+                    placeholder="Enter your prompt here (e.g., 'write story', 'help me code', 'explain AI')..."
+                    rows="4"
+                ></textarea>
+                
+                <div class="button-group">
+                    <button id="optimizeBtn" class="primary-btn">
+                        <span class="btn-text">Optimize Prompt</span>
+                        <div class="loading-spinner" style="display: none;"></div>
+                    </button>
+                    <button id="clearBtn" class="secondary-btn">Clear</button>
+                </div>
+            </div>
+
+            <div class="output-section" id="outputSection" style="display: none;">
+                <label for="optimizedPrompt">Optimized Prompt:</label>
+                <div class="output-container">
+                    <textarea id="optimizedPrompt" readonly rows="5"></textarea>
+                    <div class="action-buttons">
+                        <button id="copyBtn" class="action-btn" title="Copy to clipboard">
+                            📋 Copy
+                        </button>
+                        <button id="insertBtn" class="action-btn" title="Insert into active text field">
+                            📝 Insert
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="error-message">
+                    <span id="errorText"></span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-links">
+                <button id="settingsBtn" class="link-btn">Settings</button>
+                <button id="helpBtn" class="link-btn">Help</button>
+                <a href="https://ollama.ai/" target="_blank" class="link-btn">Get Ollama</a>
+            </div>
+            <div class="version">v1.0.0</div>
+        </footer>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Settings</h3>
+                    <button id="closeModal" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-group">
+                        <label for="ollamaEndpoint">Ollama Endpoint:</label>
+                        <input type="text" id="ollamaEndpoint" value="http://localhost:11434" />
+                    </div>
+                    <div class="setting-group">
+                        <label for="modelName">Model Name:</label>
+                        <input type="text" id="modelName" value="llama2" />
+                    </div>
+                    <div class="setting-group">
+                        <label for="temperature">Temperature:</label>
+                        <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.3" />
+                        <span id="tempValue">0.3</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveSettings" class="primary-btn">Save</button>
+                    <button id="resetSettings" class="secondary-btn">Reset to Default</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Modal -->
+        <div id="helpModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>How to Use PromptTune</h3>
+                    <button id="closeHelpModal" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="help-section">
+                        <h4>Prerequisites:</h4>
+                        <ol>
+                            <li>Install <a href="https://ollama.ai/" target="_blank">Ollama</a></li>
+                            <li>Download LLaMA 2: <code>ollama pull llama2</code></li>
+                            <li>Start Ollama: <code>ollama serve</code></li>
+                        </ol>
+                    </div>
+                    <div class="help-section">
+                        <h4>Usage:</h4>
+                        <ol>
+                            <li>Enter your prompt in the text area</li>
+                            <li>Click "Optimize Prompt"</li>
+                            <li>Copy or insert the optimized prompt</li>
+                        </ol>
+                    </div>
+                    <div class="help-section">
+                        <h4>Examples:</h4>
+                        <ul>
+                            <li><strong>Input:</strong> "write story"</li>
+                            <li><strong>Output:</strong> "Write a compelling short story with a clear beginning, middle, and end..."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html> 

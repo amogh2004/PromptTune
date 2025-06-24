@@ -9,7 +9,7 @@ async function optimizePrompt(userInput) {
             messages: [
                 {
                     role: 'system',
-                    content: 'You are a prompt optimization expert. Rewrite the user\'s prompt to be clearer, more specific, and more effective. Output only the improved prompt, no explanations. You can give 2-3 options for the user to choose from.'
+                    content: 'You are a prompt optimization expert. Rewrite the user\'s prompt to be clearer, more specific, and more effective. Output only the improved prompt, no explanations. Read the user\'s prompt and catch the tone. Role, Context, Task, Output Format and Tone should be mentioned. Try to be as neutral as possible.'
                 },
                 {
                     role: 'user',
